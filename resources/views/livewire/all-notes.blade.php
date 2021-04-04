@@ -13,8 +13,8 @@
     >
       @livewire('trash-icon', key($note->id))
     </button>
+    <!-- Need a click event for paperclip -->
     <button 
-      wire:click="$emit('restore', {{ $note->id }})" 
       class="p-1 absolute -right-3 -top-3 rounded-full text-xs ml-2 shadow-sm bg-white"
     >
       @livewire('paperclip-icon', key($note->id))
