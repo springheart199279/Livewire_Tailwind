@@ -7,24 +7,27 @@ use Livewire\Component;
 
 class AllNotes extends Component
 {
-    public $notes;
+  public $notes;
 
-    protected $listeners = [
-      'refreshNotes' => '$refresh',
-      'delete' => 'deleteNote'
-    ];
+  protected $listeners = [
+    'refreshNotes' => '$refresh'
+  ];
 
-    public function render()
-    {
-        $this->notes = Note::all();
-        return view('livewire.all-notes');
-    }
+  public function mount()
+  {
+    $this->notes = Note::all();
+  }
 
-    public function deleteNote($note_id)
-    {
-      $note = Note::where('id', $note_id);
-      $note->delete();
+  public function render()
+  {
+    return view('livewire.all-notes');
+  }
 
-      $this->emit('notesDeleted');
-    }
+  public function deleteNote($note_id)
+  {
+    $note = Note::where('id', $note_id);
+    $note->delete();
+
+    $this->emit('notesDeleted');
+  }
 }

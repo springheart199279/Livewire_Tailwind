@@ -7,32 +7,34 @@ use Livewire\Component;
 
 class DeletedNotes extends Component
 {
-    public $notes;
+  public $notes;
 
-    protected $listeners = [
-      'notesDeleted' => '$refresh',
-      'restore' => 'restoreNote'
-    ];
+  protected $listeners = [
+    'notesDeleted' => '$refresh'
+  ];
 
-    public function render()
-    {
-        $this->notes = Note::withTrashed()
-          ->whereNotNull('deleted_at')
-          ->orderBy('id', 'desc')
-          ->get();
-          
-        return view('livewire.deleted-notes');
-    }
+  public function mount()
+  {
+    $this->notes = Note::withTrashed()
+      ->whereNotNull('deleted_at')
+      ->orderBy('id', 'desc')
+      ->get();
+  }
 
-    public function restoreNote($note_id)
-    {
-      $note = Note::where('id', $note_id);
-      $note->restore();
+  public function render()
+  {
+    return view('livewire.deleted-notes');
+  }
 
-      $this->emit('refreshNotes');
-    }
+  public function restoreNote($note_id)
+  {
+    $note = Note::where('id', $note_id);
+    $note->restore();
 
-    public function formatString($string) {
-      return strlen($string) > 130 ? substr($string, 0, 130) . '...' : $string;
-    }
+    $this->emit('refreshNotes');
+  }
+
+  public function formatString($string) {
+    return strlen($string) > 130 ? substr($string, 0, 130) . '...' : $string;
+  }
 }

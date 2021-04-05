@@ -7,35 +7,35 @@ use Livewire\Component;
 
 class NewNote extends Component
 {
-    public $text;
-    public $validationMessage = "Note cannot be empty";
+  public $text;
+  public $validationMessage = "Note cannot be empty";
 
   protected $rules = [
     'text' => 'required|string|filled'
   ];
 
-    public function render()
-    {
-        return view('livewire.new-note');
-    }
+  public function render()
+  {
+      return view('livewire.new-note');
+  }
 
-    public function createNote()
-    {
-      // validate incoming data
-      $validatedText = $this->validate();
-      
-      // create a new note
-      Note::create($validatedText);
+  public function createNote()
+  {
+    // validate incoming data
+    $validatedText = $this->validate();
+    
+    // create a new note
+    Note::create($validatedText);
 
-      // reset the local property/UI
-      $this->reset();
+    // reset the local property/UI
+    $this->resetData();
 
-      // Emit an event to refresh the notes
-      $this->emit('refreshNotes');
-    }
+    // Emit an event to refresh the notes
+    $this->emit('refreshNotes');
+  }
 
-    public function resetData()
-    {
-      $this->text = null;
-    }
+  public function resetData()
+  {
+    $this->text = null;
+  }
 }
