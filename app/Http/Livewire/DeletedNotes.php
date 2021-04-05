@@ -10,7 +10,8 @@ class DeletedNotes extends Component
   public $notes;
 
   protected $listeners = [
-    'notesDeleted' => '$refresh'
+    'notesDeleted' => '$refresh',
+    'notesRestored' => '$refresh'
   ];
 
   public function render()

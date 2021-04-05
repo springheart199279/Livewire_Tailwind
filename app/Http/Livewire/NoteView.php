@@ -30,7 +30,7 @@ class NoteView extends Component
     $note = Note::find($note_id);
     $note->delete();
 
-    $this->emit('refreshNotes');
-    $this->emit('notesDeleted');
+    $this->emitTo('all-notes', 'refreshNotes');
+    $this->emitTo('deleted-notes', 'notesDeleted');
   }
 }

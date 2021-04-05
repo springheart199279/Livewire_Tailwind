@@ -24,7 +24,9 @@ class DeletedNoteView extends Component
     $note = Note::withTrashed()->where('id', $note_id)->get()->first();
     $note->restore();
 
-    $this->emit('refreshNotes');
+    $this->emitTo('all-notes', 'refreshNotes');
+    $this->emitTo('deleted-notes', 'notesRestored');
+
   }
 
   public function formatString($string)
