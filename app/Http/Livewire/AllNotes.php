@@ -25,7 +25,7 @@ class AllNotes extends Component
 
   public function deleteNote($note_id)
   {
-    $note = Note::where('id', $note_id);
+    $note = Note::find($note_id);
     $note->delete();
 
     $this->emit('notesDeleted');

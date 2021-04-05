@@ -3,7 +3,7 @@
 >
   @foreach ($notes as $note)
   <div 
-    wire:key="{{ $note->id }}" 
+    :key="$note->id" 
     class="relative text-gray-500 shadow-md h-full w-60 rounded-md border-2 border-gray-200 p-3 flex break-all"
   >
     {{ $this->formatString($note->text) }}

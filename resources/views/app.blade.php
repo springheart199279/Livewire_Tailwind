@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html">
+<html lang="en">
 
-  <head>
-    <!-- TailWind CSS-->
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>LiquidFishDemo</title>
+<head>
+  <title>LiquidFishDemo</title>
 
-    <!-- Alpine JS-->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    
-    @livewireStyles
-  </head>
+  <!-- TailWind CSS-->
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
 
-  <body>
+  <!-- Alpine JS-->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+  @livewireStyles
+</head>
+
+<body>
+  <div>
     <div class="px-10 h-80 mt-10 grid grid-rows-1 grid-cols-2 grid-flow-col gap-10">
       @livewire('new-note')
       @livewire('all-notes')
     </div>
-
     @livewire('deleted-notes')
+  </div>
 
-    @livewireScripts
-  </body>
+  @livewireScripts
+</body>
 
-  </html>
+</html>

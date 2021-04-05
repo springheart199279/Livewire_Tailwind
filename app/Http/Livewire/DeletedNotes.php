@@ -28,7 +28,7 @@ class DeletedNotes extends Component
 
   public function restoreNote($note_id)
   {
-    $note = Note::where('id', $note_id);
+    $note = Note::withTrashed()->where('id', $note_id)->get()->first();
     $note->restore();
 
     $this->emit('refreshNotes');

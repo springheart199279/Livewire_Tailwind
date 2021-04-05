@@ -1,10 +1,10 @@
 <div 
-  class="rounded-lg shadow-lg h-full p-4 overflow-auto"
+  class="h-full p-4 overflow-auto rounded-lg shadow-lg"
 >
   @foreach ($notes as $index => $note)
   <div 
-    wire:key="{{ $note->id }}" 
-    class="relative flex items-stretch rounded-md border-2 border-gray-100 p-2 mb-4 break-all"
+    wire:key="$note->id" 
+    class="relative flex items-stretch p-2 mb-4 break-all border-2 border-gray-100 rounded-md"
   >
     {{ $note->text }}
     <button 
@@ -14,7 +14,9 @@
       @livewire('trash-icon', key($note->id))
     </button>
     <button 
-      class="p-1 absolute -right-3 -top-3 rounded-full text-xs ml-2 shadow-sm"
+      x-data="{ shouldHighlight: {{ $index }} === 0 }"
+      :class="[ shouldHighlight ? 'bg-blue-100' : 'bg-white' ]"
+      class="absolute p-1 ml-2 text-xs rounded-full shadow-sm -right-3 -top-3"
     >
       @livewire('paperclip-icon', key($note->id))
     </button>
