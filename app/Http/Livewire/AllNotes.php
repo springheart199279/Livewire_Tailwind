@@ -10,13 +10,14 @@ class AllNotes extends Component
   public $notes;
 
   public $listeners = [
-    'refreshNotes' => '$refresh'
+    'refreshNotes' => '$refresh',
+    'noteAdded' => '$refresh'
   ];
 
   public function render()
   {
     $this->notes = Note::latest()->get();
-    
+
     return view('livewire.all-notes');
   }
 }

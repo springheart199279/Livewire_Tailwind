@@ -31,6 +31,6 @@ class NewNote extends Component
     $this->text = null;
 
     // Emit an event to refresh the notes
-    $this->emit('refreshNotes');
+    $this->emit('noteAdded');
   }
 }

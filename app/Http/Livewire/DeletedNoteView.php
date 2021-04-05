@@ -28,9 +28,4 @@ class DeletedNoteView extends Component
     $this->emitTo('deleted-notes', 'notesRestored');
 
   }
-
-  public function formatString($string)
-  {
-    return strlen($string) > 130 ? substr($string, 0, 130) . '...' : $string;
-  }
 }
