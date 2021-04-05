@@ -1,6 +1,6 @@
 <div 
   :key="$note->id" 
-  class="relative z-10 flex h-full p-3 text-gray-500 break-all border-2 border-gray-200 rounded-md shadow-md w-60"
+  class="relative flex h-full p-3 text-gray-500 break-all border-2 border-gray-200 rounded-md shadow-md w-60"
   >
     <div
       class="overflow-y-scroll"

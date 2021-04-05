@@ -9,6 +9,8 @@ class NoteView extends Component
 {
   public $index;
   public $note;
+  public $allNotes;
+  public $isPinned;
 
   protected $listeners = [
     'refreshNotes' => '$refresh'
@@ -22,6 +24,8 @@ class NoteView extends Component
 
   public function render()
   {
+    $this->allNotes = Note::latest()->get();
+
     return view('livewire.note-view');
   }
 
