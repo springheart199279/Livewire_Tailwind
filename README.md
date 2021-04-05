@@ -1,6 +1,6 @@
-### Laravel Livewire w/ Alpine.js Demeo
+# Laravel Livewire w/ Alpine.js Demeo
 
-To be honest, I really enjoy Livewire/Alpine!  Composing UI while staying within Laravel felt like super convenient. And, coming from a Vue background, the Alpine syntax felt familiar.
+### I really enjoy Livewire/Alpine!  Composing UI while staying within Laravel felt like super convenient. And, coming from a Vue background, the Alpine syntax felt familiar.
 
 
 Unfortunately, I don't have any more personal time to throw at this so there's a few requirements I'm missing:
