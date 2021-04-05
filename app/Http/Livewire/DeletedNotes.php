@@ -13,28 +13,13 @@ class DeletedNotes extends Component
     'notesDeleted' => '$refresh'
   ];
 
-  public function mount()
+  public function render()
   {
     $this->notes = Note::withTrashed()
       ->whereNotNull('deleted_at')
       ->orderBy('id', 'desc')
       ->get();
-  }
 
-  public function render()
-  {
     return view('livewire.deleted-notes');
-  }
-
-  public function restoreNote($note_id)
-  {
-    $note = Note::withTrashed()->where('id', $note_id)->get()->first();
-    $note->restore();
-
-    $this->emit('refreshNotes');
-  }
-
-  public function formatString($string) {
-    return strlen($string) > 130 ? substr($string, 0, 130) . '...' : $string;
   }
 }

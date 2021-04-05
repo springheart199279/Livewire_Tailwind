@@ -28,14 +28,9 @@ class NewNote extends Component
     Note::create($validatedText);
 
     // reset the local property/UI
-    $this->resetData();
+    $this->text = null;
 
     // Emit an event to refresh the notes
     $this->emit('refreshNotes');
-  }
-
-  public function resetData()
-  {
-    $this->text = null;
   }
 }

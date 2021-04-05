@@ -9,25 +9,14 @@ class AllNotes extends Component
 {
   public $notes;
 
-  protected $listeners = [
+  public $listeners = [
     'refreshNotes' => '$refresh'
   ];
 
-  public function mount()
-  {
-    $this->notes = Note::all();
-  }
-
   public function render()
   {
+    $this->notes = Note::latest()->get();
+    
     return view('livewire.all-notes');
-  }
-
-  public function deleteNote($note_id)
-  {
-    $note = Note::find($note_id);
-    $note->delete();
-
-    $this->emit('notesDeleted');
   }
 }
