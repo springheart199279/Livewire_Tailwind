@@ -6,7 +6,7 @@ Stack:
 * Laravel Livewire
 * Sail
 
-##### I really enjoy Livewire/Alpine!  Composing UI while staying within Laravel felt like super convenient. And, coming from a Vue background, the Alpine syntax felt familiar.
+##### Opinion:  I really enjoy Livewire!  Composing UI while staying within Laravel felt like <i>super</i> convenient. And, coming from a Vue background, the Alpine syntax felt familiar.
 
 ### Challenge:
 
