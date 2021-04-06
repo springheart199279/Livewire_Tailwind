@@ -1,4 +1,5 @@
-# Laravel Livewire w/ Alpine.js Demo (Laravel Sail)
+# Laravel Livewire w/ Alpine.js Demo
+##### (also Laravel Sail)
 
 ##### I really enjoy Livewire/Alpine!  Composing UI while staying within Laravel felt like super convenient. And, coming from a Vue background, the Alpine syntax felt familiar.
 
