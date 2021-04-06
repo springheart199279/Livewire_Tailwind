@@ -1,28 +1,30 @@
 <div 
-  class="rounded-lg shadow-lg h-full p-4"
+  class="h-full p-4 rounded-lg shadow-lg"
 >
   <h1 
-    class="font-medium mb-2"
+    class="mb-2 font-medium"
   > 
     New Note
   <h1>
   <textarea 
-    class="rounded-md border-2 border-gray-100 p-2 h-40 w-full" 
+    class="w-full h-40 p-2 border-2 border-gray-100 rounded-md" 
     placeholder="Type a new note..." 
     wire:model="text"
   ></textarea>
   <div class="flex">
 
+  {{-- I wrapped this error in an if statement so that it would disappear when the the user starts typing --}}
   @if (empty(trim($text)))
-    @error('text') 
-      <span class="text-red-500 text-sm">
-        {{ $validationMessage }}
-      </span> 
+    @error('text')
+    <span class="text-sm text-red-500">
+      {{ $validationMessage }}
+    </span>
     @enderror
   @endif
 
     <button 
-      class="align-bottom ml-auto inline-grid bg-blue-100 py-1 px-2 shadow-sm rounded-md" wire:click="createNote"
+      class="inline-grid px-2 py-1 ml-auto align-bottom bg-blue-100 rounded-md shadow-sm" 
+      wire:click="createNote"
     >
       Save
     </button>

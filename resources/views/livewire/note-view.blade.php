@@ -2,7 +2,6 @@
     class="relative flex items-stretch p-2 mb-4 break-all border-2 border-gray-100 rounded-md"
   >
     {{ $note->text }}
-    {{ $isPinned ? 'true' : 'false' }}
     <button 
       wire:click="delete({{$note->id}})" 
       class="self-end ml-auto"
